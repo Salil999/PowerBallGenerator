@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Powerball Generator</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="text-center">Powerball Generator</h1>
+		<div class="row">
+			<div class="col-xs-2 text-center"><span id="one">0</span></div>
+			<div class="col-xs-2 text-center"><span id="two">0</span></div>
+			<div class="col-xs-2 text-center"><span id="three">0</span></div>
+			<div class="col-xs-2 text-center"><span id="four">0</span></div>
+			<div class="col-xs-2 text-center"><span id="five">0</span></div>
+			<div id="red" class="col-xs-2 text-center"><span id="six">0</span></div>
+		</div>
+		<btn class="btn btn-lg btn-primary btn-block" onclick="generate()">Generate</btn>
+		<p class="text-center">Quick tool to generate powerball numbers!</p>
+		<h2 class="text-center">Sonya Khan</h2>
+		<h2 class="text-center">Shashank Saxena</h2>
+	</div>
+	<script>
+		function powerBall() {
+			return Math.floor(Math.random() * 26) + 1;
+		}
+
+		function randomNumber() {
+			return Math.floor(Math.random() * 69) + 1;
+		}
+
+		function generate() {
+			document.getElementById('one').innerHTML = randomNumber();
+			document.getElementById('two').innerHTML = randomNumber();
+			document.getElementById('three').innerHTML = randomNumber();
+			document.getElementById('four').innerHTML = randomNumber();
+			document.getElementById('five').innerHTML = randomNumber();
+			document.getElementById('six').innerHTML = powerBall();
+			var check = [];
+			check.push(document.getElementById('one').innerHTML);
+			check.push(document.getElementById('two').innerHTML);
+			check.push(document.getElementById('three').innerHTML);
+			check.push(document.getElementById('four').innerHTML);
+			check.push(document.getElementById('five').innerHTML);
+			for (var i = 0; i < check.length; i++) {
+				for (var j = i; j < check.length; j++) {
+					if (i !== j && check[i] == check[j]) {
+						generate();
+					} else {
+						return;
+					}
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>

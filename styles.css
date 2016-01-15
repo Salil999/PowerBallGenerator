@@ -1,0 +1,17 @@
+h2 {
+	font-size: 1.4em;
+}
+
+#red {
+	padding-bottom: 4.0em;
+	color: red;
+}
+
+span {
+	font-size: 2.0em;
+}
+
+p {
+	padding-top: 2.0em;
+	padding-bottom: 3.0em;
+}
